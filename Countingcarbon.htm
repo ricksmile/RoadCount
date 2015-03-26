@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title></title>
+  
+    <script  src="js/jquery-latest.min.js"></script>
+    <script  src="js/bootstrap.min.js"></script>
+    <script  src="js/highcharts.js"></script>
+    <script  src="js/test.js"></script>
+    <link href="css/test.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!--  <link type="text/css" href="test.css" rel="Stylesheet" />-->
+</head>
+<body >
+
+<table><tr>
+<td><a href="#myModal" role="button" class="btn" data-toggle="modal">選擇績效類型</a></td>
+<td><em><p class="lead stepTitle"></p></em></td>
+</tr></table>       
+
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header  text-center">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel ">選擇評估模式</h3>
+  </div>
+  <div class="modal-body">
+    <p  class="tag lead text-info" style=" cursor:pointer"><span class="badge">1.</span>路口停等延滯評估</p>
+    <p  class="tag lead text-info" style=" cursor:pointer"><span class="badge">2.</span>路段旅行速率評估</p>
+    <p  class="tag lead text-info" style=" cursor:pointer"><span class="badge">3.</span>路口與路段綜合評估</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">關閉</button>
+   
+    <button class="btn btn-primary clearall">清除所有設定</button>
+  </div>
+</div> 
+
+    <div class="abgne_tab">
+        <div class="tab_container">
+            <div id="tab1" class="tab_content">
+                <div class="step">
+
+                  <p class="lead step1Title">步驟一：選擇評估時段</p>
+                  <table class="table">
+                  <tr class="success"><td colspan=3>
+                      <div class="dropdown btn-group">
+                          <a class="btn  dropdown-toggle" data-toggle="dropdown" href="#">選擇城市</a>
+                          <ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu">
+                              <li  ><a tabindex="-1" href="#">高度都市化</a></li>
+                                <li><a tabindex="-1" value="高度都市化" href="#">&nbsp;&nbsp;臺北市</a></li>
+                                  <li><a tabindex="-1" value="高度都市化" href="#">&nbsp;&nbsp;新北市</a></li>
+                              <li class="divider"></li>
+                              <li ><a tabindex="-1" href="#">中度都市化</a> </li>
+                               <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;基隆市</a></li>
+                                  <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;桃園縣</a></li>
+                                  <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;新竹市</a></li>
+                                  <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;臺中市</a></li>
+                                  <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;彰化縣</a></li>
+                                  <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;嘉義市</a></li>
+                                  <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;臺南市</a></li>
+                                  <li><a tabindex="-1" value="中度都市化" href="#">&nbsp;&nbsp;高雄市</a></li>
+                              <li class="divider"></li>
+                              <li ><a tabindex="-1" href="#">一般都市</a></li>
+                               <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;新竹縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;南投縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;苗栗縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;雲林縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;嘉義縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;屏東縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;宜蘭縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;花蓮縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;台東縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;澎湖縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;金門縣</a></li>
+                                  <li><a tabindex="-1" value="一般都市" href="#">&nbsp;&nbsp;連江縣</a></li>
+                            </ul>
+
+                      </div>
+                  </td></tr>
+                 <!-- <tr  class="success">
+                  <td><label class="radio"><input type="radio" name="type" value="高度都市化" checked="checked" />高度都市化</label> </td>
+                  <td><label class="radio"> <input type="radio" name="type" value="中度都市化" />中度都市化</label></td>
+                  <td> <label class="radio"><input type="radio" name="type" value="一般都市"  />一般都市</label></td></tr>-->
+                  <tr class="warning">
+                  <td> <label class="checkbox"><input class="option" name="平日上午尖峰"  id="Checkbox1" type="checkbox" checked="checked" />平日上午尖峰(必選)</label></td>
+                  <td> <label class="checkbox"><input class="option" name="平日下午尖峰" id="Checkbox2" type="checkbox" checked="checked" />平日下午尖峰(必選)</label></td>
+                  <td></td>
+                  </tr>
+                  <tr class="info">
+                    <td><label class="checkbox"><input  class="option" name="假日上午尖峰" id="Checkbox4" type="checkbox" />假日上午尖峰 </label></td>
+                    <td><label class="checkbox"><input  class="option" name="假日下午尖峰" id="Checkbox5" type="checkbox" />假日下午尖峰 </label></td>
+                   <td></td>
+                  </tr>
+                   <tr class="info">
+                   <td><label class="checkbox"><input class="option"  name="平日離峰" id="Checkbox7" type="checkbox" />平日離峰 </label></td>
+                   <td><label><input class="option"  name="假日離峰" id="Checkbox8" type="checkbox" />假日離峰 </label></td>
+                   <td></td>
+                   </tr>
+                  </table>
+                   <blockquote>
+                      <p>備註：如平日離峰及假日離峰均未勾選，擇僅評估尖峰時段效益</p>
+                   <!--   <small>運研所<cite title="來源">提供</cite></small>-->
+                    </blockquote>
+                    
+                    <span  value="步驟一" style=" margin-right:100px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">下一步</a></span>
+             
+                </div>
+                <div class="step">
+                <div class="changeStep2">
+                    <p class="lead">步驟二：輸入路段與路口與交通績效值</p>
+                        <table class="table table-striped table-bordered"><tr>
+                          <td><p class="lead"><em>幹道名稱</em></p></td>
+                          <td><p class="lead"><em>方向</em></p></td>
+                          <td><p class="lead"><em>路口數</em></p></td></tr></table>
+                 </div>
+                <div>
+                        <span class="add"><a href="#">
+                            <img src="img/newAdd.png" border="0" alt="" /></a></span>
+                           <span class="sub"><a href="#">
+                            <img src="img/newSub.png" border="0" alt="" /></a></span>
+                    </div>
+                  
+                  <blockquote>
+                      <p>備註：同一路段不同行駛方向視為不同路段</p>
+                  </blockquote>
+                   
+                     <span value="步驟二" style=" margin-right:30px;float:right" class="button"><a    href="#" class="btn btn-large btn-primary disabled">下一步</a></span>
+                     <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">上一步</a></span>
+                  
+                </div>
+                <div class="step">
+                    <p class="lead">
+                        步驟三：輸入計算交通績效值與油價</p>
+                        <div class="row">
+                              <div class="span4"><p class="lead"><em><strong><abbr title="請至以下網址看油價填選">95無鉛汽油油價(元/公升)</abbr></strong></em></p></div>
+                              <div class="span2"><input class="span1" placeholder="價格" name="95無鉛汽油油價" type="text" value=""/></div>
+                        </div>
+
+                     <div class="css_table">
+                        <div class="css_tr">
+                            <div class="css_td">  </div>
+                            <div class="css_td"></div>
+                        </div>
+                         <div style="display:none" class="css_tr">
+                            <div class="css_td"> <h3>小客車油耗率(公升/hr)</h3> </div>
+                            <div class="css_td"><span class="小客車油耗率"></span></div>
+                        </div>
+                    </div>
+           
+                    <a  target="blank" href="http://web3.moeaboe.gov.tw/oil102/oil1022010/visit_counter.asp?id=0201&url=A01/A0101/cpk_setform.asp?setfrm=week">經濟部能源局國內油品週均價查詢(請採用評估時間之中油全國週平均價格) </a>
+                    <hr/>   
+                    <div id="graphic"></div>
+                    <p></p>
+                    <div id="TTTresult">
+                  
+                    </div>
+                    <span  value="步驟三" style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">下一步</a></span>
+                    <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">上一步</a></span>
+                </div>
+                <div class="step">
+                    <h2>
+                        步驟四：輸出結果</h2>
+                    <div class="都市層級">
+                      
+                    </div>
+                     <div class="評估時段">
+                     
+                    </div>
+                     <div class="評估路段與路口">
+                     
+                    </div>
+                     <div class="路口與路段績效值">
+                      
+                    </div>
+                     <div class="績效計算結果">
+                       <h3>績效計算結果</h3>
+                    </div>
+                     <div class="總效益分析">
+                     
+                    </div>
+                     <div class="圖表">
+                       <h3>圖表</h3>
+                       <div id="container2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+                    </div>
+
+
+                 
+                    <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">下一步</a></span>
+                     <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">上一步</a></span>
+                </div>
+                <div class="step">
+                    <h2>
+                        步驟五：計算全年油耗節省</h2>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    小客車怠速油耗率(公升/小時
+                                </td>
+                                <td>
+                                    <a class="value">1.54</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    油價(元/公升)
+                                </td>
+                                <td>
+                                    <input size="5" type="text" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr />
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    平日上午尖峰全年油耗節省(公升)
+                                </td>
+                                <td>
+                                    <a class="value">10036.76</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    平日下午尖峰全年油耗節省(公升)
+                                </td>
+                                <td>
+                                    <a class="value">10036.76</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    假日尖峰全年油耗節省(公升)
+                                </td>
+                                <td>
+                                    <a class="value">31568.72</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr />
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    全年油耗節省(公升)
+                                </td>
+                                <td>
+                                    <a class="value2">85,485.69</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    全年油耗節省(元))
+                                </td>
+                                <td>
+                                    <a class="value2">2,915,917 </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p>
+                    </p>
+                    <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">下一步</a></span>
+                     <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">上一步</a></span>
+                </div>
+                <div class="step">
+                    <h2>
+                        步驟六：計算全年CO2減少量</h2>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    汽油之二氧化碳排放率(克/公升)
+                                </td>
+                                <td>
+                                    <a class="value">2263</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    CO2損害成本(元/公噸
+                                </td>
+                                <td>
+                                    <a class="value">590 </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr />
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    平日上午尖峰全年CO2減少量(公噸)
+                                </td>
+                                <td>
+                                    <a class="value">2263</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    平日下午尖峰全年CO2減少量(公噸)
+                                </td>
+                                <td>
+                                    <a class="value">590 </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    假日尖峰全年CO2減少量(公噸
+                                </td>
+                                <td>
+                                    <a class="value">590 </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr />
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    全年CO2減少量(公噸)
+                                </td>
+                                <td>
+                                    <a class="value2">193.45</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    全年CO2貨幣化效益(元)
+                                </td>
+                                <td>
+                                    <a class="value2">11438.1 </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p>
+                    </p>
+                    <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">下一步</a></span>
+                     <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">上一步</a></span>
+                </div>
+                <div class="step">
+                    <h2>
+                        步驟七：計算全年貨幣化效益</h2>
+                    <p>
+                        全年貨幣化效益(元) <a class="value2">16013888 </a>
+                    </p>
+                      <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">下一步</a></span>
+                     <span style=" margin-right:30px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">上一步</a></span>
+                </div>
+                <div class="step">
+                    <h2>
+                        高度都市化縣市之尖離峰小時年化放大係數</h2>
+                    <div>
+                        <img src="table.png" style="width: 80%; height: 50%" />
+                        <!--     <table>
+                    <tr>
+                    <th>時段別</th>
+                    <th>平日上午尖峰</th>
+                    <th>平日下午尖峰</th>
+                    <th>假日尖峰</th>
+                    </tr>
+                    <tr>
+                    <td>放大係數F</td>
+                    <td>765</td>
+                    <td>765</td>
+                    <td>765</td>
+                    </tr>
+                    <tr>
+                    <td>放大係數G</td>
+                    <td>765</td>
+                    <td>765</td>
+                    <td>765</td>
+                    </tr>
+                    <tr>
+                     <td>放大係數H</td>
+                    <td>765</td>
+                    <td>765</td>
+                    <td>765</td>
+                    </tr>
+                    <tr>
+                    <td>放大係數I</td>
+                    <td>765</td>
+                    <td>765</td>
+                    <td>765</td>
+                    </tr>
+                    <tr>
+                    <td>放大係數J</td>
+                    <td>765</td>
+                    <td>765</td>
+                    <td>765</td>
+                    </tr>
+                    </table>-->
+                    </div>
+                    <span class="button"><a href="data.xls">匯出</a></span>
+                    <br />
+                    <br />
+                    <hr />
+                    <!--     <div>
+               <p>備註:</p>
+               <p> 放大係數F:實施平日上、下午尖峰、離峰及假日尖峰(一次)調查或模擬者 </p>
+               <p> 放大係數G:實施平、假日上、下午尖峰及平日離峰調查或模擬者 </p>
+               <p> 放大係數H:實施平日上、下午尖峰及離峰調查或模擬者 </p>
+               <p> 放大係數I:實施平日上、下午尖峰、離峰及假日尖峰(一次)、離峰調查或模擬者 </p>
+               <p> 放大係數J:實施平、假日上、下午尖峰及離峰調查或模擬者 </p>
+            </div>-->
+                    <br />
+                  
+                     <span style=" margin-right:100px;float:right" class="button"><a  href="#" class="btn btn-large btn-primary disabled">上一步</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

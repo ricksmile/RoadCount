@@ -1,0 +1,151 @@
+﻿
+
+
+/* div table*/	
+table, td, th
+{
+  
+/*border:1px solid green;*/
+border:0;
+}
+table
+{
+    width:100%;
+}
+th
+{
+background-color:green;
+color:white;
+}
+
+.css_table {
+      display:table;
+    
+  }
+.css_tr {
+      display: table-row;
+  }
+.css_td {
+      display: table-cell;
+      width:45%;
+  }
+ .css30_td {
+      display: table-cell;
+      width:30%;
+  }
+  .css20_td {
+      display: table-cell;
+      width:20%;
+  }
+  
+   .cssno_td {
+      display: table-cell;
+      width:16%;
+  }
+  
+	
+	.sec_tab {
+		width: 600px;	/* 第2個頁籤區塊的寬度 */
+	}
+	
+	
+	
+	
+	
+  /*外框*/  
+.outer_road   
+{width:100%;     
+background:white;
+display:table-row;
+}
+.header_road  
+{
+ 
+width:100%;
+height:20px;
+ text-align:center;
+background:#CCCCFF;
+         
+}
+          
+.sidebar_road 
+{
+width:25px;
+float:left;
+height:150px;
+background:#CCCCFF;
+ text-align:center;
+}
+.content_road 
+{
+    
+width:150px;
+float:left;
+height:150px;
+background:#CCFFFF;
+
+}
+
+ /*內容參數*/  
+ .innerRow1_road
+ {
+     margin-top:26px;
+    width:100%;
+  height:20px;
+
+     text-align:center;
+ }       
+ .innerRow2_road
+ {
+    width:100%;
+ height:20px;
+ text-align:left;
+
+ }
+ .innerRow3_road
+ {
+    width:100%;
+ height:20px;
+     text-align:right;
+ }
+ .innerRow4_road
+ {
+     
+    width:100%;
+ height:20px;
+     text-align:left;
+    
+ }
+ 
+ .innerRow5_road
+ {
+     
+    width:100%;
+ height:20px;
+     text-align:left;
+    
+ }
+ 
+
+ 
+ /*其他*/
+ .blue
+ {
+     color:Blue;
+ }
+ 
+ .green
+ {
+     color:Green;
+ }
+ 
+ .bgblue
+ {
+     background:#CCCCFF;
+     }
+     
+     .bgwhite
+ {
+     background:#CCFFFF;
+     }
+  
